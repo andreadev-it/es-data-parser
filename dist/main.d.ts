@@ -1,2 +1,3 @@
-export declare function parseFile(file: File): void;
-export declare function parseText(data: string): import("./structures").FileRoot;
+import { FileRoot } from "./structures";
+export declare function parseFile(file: File): Promise<FileRoot>;
+export declare function parseText(data: string): FileRoot;

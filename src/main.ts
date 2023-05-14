@@ -1,15 +1,19 @@
 import { parse } from "./parser";
+import { FileRoot } from "./structures";
 
 export function parseFile(file: File) {
-    const reader = new FileReader();
+    return new Promise<FileRoot>((resolve, _) => {
+        const reader = new FileReader();
 
-    reader.onload = () => {
-        const data = reader.result as string;
+        reader.onload = () => {
+            const data = reader.result as string;
 
-        parse(data);
-    };
+            resolve(parse(data));
+        };
 
-    reader.readAsText(file);
+        reader.readAsText(file);
+        
+    })
 }
 
 export function parseText(data: string) {

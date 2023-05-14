@@ -1,13 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parse = void 0;
-const structures_1 = require("./structures");
-function parse(data) {
-    const root = new structures_1.FileRoot([], 0);
+import { Line, FileRoot } from "./structures";
+export function parse(data) {
+    const root = new FileRoot([], 0);
     let isQuoteOpen = false;
     let isComment = false;
     let currentQuote = "";
-    let currentLine = new structures_1.Line([], 0);
+    let currentLine = new Line([], 0);
     let currentToken = "";
     let parentLevels = [root];
     for (let i = 0; i < data.length; i++) {
@@ -40,7 +37,7 @@ function parse(data) {
                     currentLine.tokens.push(currentToken);
                     currentToken = '';
                 }
-                nextLine = new structures_1.Line([], 0);
+                nextLine = new Line([], 0);
                 // ignore comments and blank lines
                 if (isComment || currentLine.tokens.length == 0) {
                     currentLine = nextLine;
@@ -93,4 +90,3 @@ function parse(data) {
     }
     return root;
 }
-exports.parse = parse;
