@@ -1,7 +1,7 @@
 import { Line, FileRoot } from "./structures";
 
-export function parse(data: string) {
-    const root = new FileRoot([], 0);
+export function parse(data: string, filename: string = "") {
+    const root = new FileRoot([], 0, filename);
     let isQuoteOpen = false;
     let isComment = false;
     let currentQuote = "";

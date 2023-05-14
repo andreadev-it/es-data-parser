@@ -24,8 +24,11 @@ export class Line {
     }
 }
 export class FileRoot extends Line {
-    constructor() {
-        super(...arguments);
+    constructor(tokens, indentation, filename) {
+        super(tokens, indentation);
+        this.tokens = tokens;
+        this.indentation = indentation;
         this.isRoot = true;
+        this.filename = filename;
     }
 }
