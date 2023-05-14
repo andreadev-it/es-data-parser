@@ -97,7 +97,12 @@ export function parse(data: string) {
 
             // handle tabs
             case '\t':
-                currentLine.indentation++;
+                if (!isQuoteOpen) {
+                    currentLine.indentation++;
+                }
+                else {
+                    currentToken += "\t";
+                }
                 break;
 
             // handle other characters
