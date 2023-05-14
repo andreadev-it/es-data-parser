@@ -26,4 +26,10 @@ export class Line {
 
 export class FileRoot extends Line {
     public isRoot = true;
+    public filename: string;
+
+    constructor(public tokens: string[], public indentation: number, filename: string) {
+        super(tokens, indentation);
+        this.filename = filename;
+    }
 }
