@@ -2,12 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FileRoot = exports.Line = void 0;
 class Line {
-    tokens;
-    indentation;
-    children = [];
     constructor(tokens, indentation) {
         this.tokens = tokens;
         this.indentation = indentation;
+        this.children = [];
     }
     toString() {
         const tokensText = [...this.tokens];
@@ -30,6 +28,9 @@ class Line {
 }
 exports.Line = Line;
 class FileRoot extends Line {
-    isRoot = true;
+    constructor() {
+        super(...arguments);
+        this.isRoot = true;
+    }
 }
 exports.FileRoot = FileRoot;

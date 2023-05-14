@@ -11,3 +11,7 @@ export function parseFile(file: File) {
 
     reader.readAsText(file);
 }
+
+export function parseText(data: string) {
+    return parse(data);
+}

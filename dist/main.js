@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseFile = void 0;
+exports.parseText = exports.parseFile = void 0;
 const parser_1 = require("./parser");
 function parseFile(file) {
     const reader = new FileReader();
@@ -11,3 +11,7 @@ function parseFile(file) {
     reader.readAsText(file);
 }
 exports.parseFile = parseFile;
+function parseText(data) {
+    return (0, parser_1.parse)(data);
+}
+exports.parseText = parseText;

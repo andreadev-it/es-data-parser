@@ -1,5 +1,5 @@
 {
-  "name": "endless-sky-data-parser",
+  "name": "es-data-parser",
   "version": "1.0.0",
   "description": "A simple data parser for endless sky game data",
   "main": "index.js",
