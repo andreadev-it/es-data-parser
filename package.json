@@ -1,0 +1,14 @@
+{
+  "name": "endless-sky-data-parser",
+  "version": "1.0.0",
+  "description": "A simple data parser for endless sky game data",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrea Dragotta",
+  "license": "ISC"
+}
