@@ -22,12 +22,17 @@ export function parse(data, filename = "") {
             case '`':
                 if (isQuoteOpen && c == currentQuote) {
                     isQuoteOpen = false;
+                    if (currentToken.length == 0) {
+                        currentLine.tokens.push('');
+                    }
+                    break;
                 }
-                else if (!isQuoteOpen && currentToken.length == 0) {
+                if (!isQuoteOpen && currentToken.length == 0) {
                     isQuoteOpen = true;
                     currentQuote = c;
+                    break;
                 }
-                else if (!isQuoteOpen) {
+                if (!isQuoteOpen) {
                     throw new Error(`Unescaped quote in string after ${currentToken}`);
                 }
                 break;
