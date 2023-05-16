@@ -14,10 +14,12 @@ export function parse(data: string, filename: string = "") {
 
         let nextLine = null;
 
+        if (isComment && c != '\n') continue;
+
         switch (c) {
             // handle comments
             case '#':
-                if (currentLine.tokens.length == 0) {
+                if (currentToken.length == 0 && !isQuoteOpen) {
                     isComment = true;
                 }
                 break;
@@ -47,17 +49,17 @@ export function parse(data: string, filename: string = "") {
 
             // handle newlines
             case '\n':
-                if (currentToken != '') {
+                if (currentToken != '' && !isComment) {
                     currentLine.tokens.push(currentToken);
-                    currentToken = '';
                 }
+                currentToken = '';
+                isComment = false;
 
                 nextLine = new Line([], 0);
 
-                // ignore comments and blank lines
-                if (isComment || currentLine.tokens.length == 0) {
+                // ignore blank lines
+                if (currentLine.tokens.length == 0) {
                     currentLine = nextLine;
-                    isComment = false;
                     continue;
                 }
 
@@ -105,8 +107,17 @@ export function parse(data: string, filename: string = "") {
 
             // handle tabs
             case '\t':
-                if (!isQuoteOpen) {
+                if (
+                    !isQuoteOpen &&
+                    currentLine.tokens.length == 0 &&
+                    currentToken.length == 0
+                ) {
                     currentLine.indentation++;
+                }
+                else if (!isQuoteOpen && currentToken.length > 0) {
+                    // Add tabs as token separators too to avoid the error in some official files
+                    currentLine.tokens.push(currentToken);
+                    currentToken = "";
                 }
                 else {
                     currentToken += "\t";
