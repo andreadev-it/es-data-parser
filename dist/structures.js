@@ -1,4 +1,7 @@
-export class Line {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FileRoot = exports.Line = void 0;
+class Line {
     constructor(tokens, indentation) {
         this.tokens = tokens;
         this.indentation = indentation;
@@ -23,7 +26,8 @@ export class Line {
         return text;
     }
 }
-export class FileRoot extends Line {
+exports.Line = Line;
+class FileRoot extends Line {
     constructor(tokens, indentation, filename) {
         super(tokens, indentation);
         this.tokens = tokens;
@@ -32,3 +36,4 @@ export class FileRoot extends Line {
         this.filename = filename;
     }
 }
+exports.FileRoot = FileRoot;
