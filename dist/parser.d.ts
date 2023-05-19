@@ -1,2 +1,3 @@
 import { FileRoot } from "./structures";
-export declare function parse(data: string, filename?: string): FileRoot;
+import { ParsedData } from "./es-objects/ParsedData";
+export declare function parse(root: FileRoot, previousData?: ParsedData | null): Promise<ParsedData>;
