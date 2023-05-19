@@ -1,21 +1,27 @@
+// import { parse } from "./parser";
+import { ParsedData } from "./es-objects/ParsedData";
+import { lex } from "./lexer";
 import { parse } from "./parser";
-import { FileRoot } from "./structures";
+import { readFile } from "./utils";
 
-export function parseFile(file: File, filename: string) {
-    return new Promise<FileRoot>((resolve, _) => {
-        const reader = new FileReader();
+export async function parseFile(file: File, filename: string, previousData: ParsedData) {
+    const parsedData = previousData ?? new ParsedData();
 
-        reader.onload = () => {
-            const data = reader.result as string;
+    let fileContent = await readFile(file);
 
-            resolve(parse(data, filename));
-        };
+    let data = lex(fileContent, filename);
 
-        reader.readAsText(file);
-        
-    })
+    parse(data, parsedData);
+
+    return parsedData;
 }
 
-export function parseText(data: string, filename: string) {
-    return parse(data, filename);
+export async function parseFiles(files: File[]) {
+    const parsedData = new ParsedData();
+
+    for (let file of files) {
+        parseFile(file, file.webkitRelativePath, parsedData);
+    }
+
+    return parsedData;
 }
