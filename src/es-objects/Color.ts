@@ -11,7 +11,8 @@ export class Color {
         return `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`;
     }
 
-    static fromLine(dataLine: Line) {
+    // The first argument is important to allow standardization across the different game objects
+    static fromLine(_: ParsedData, dataLine: Line) {
         let label = dataLine.tokens[1];
         let r = parseFloat(dataLine.tokens[2]);
         let g = parseFloat(dataLine.tokens[3]);

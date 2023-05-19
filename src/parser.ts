@@ -16,11 +16,10 @@ export async function parse(root: FileRoot, previousData: ParsedData | null = nu
             parsedData.addStarSystem(System.fromLine(parsedData, child));
         }
         else if (child.tokens[0] == 'galaxy') {
-            const galaxy = Galaxy.fromLine(parsedData, child)
-            parsedData.addGalaxy(galaxy);
+            parsedData.addGalaxy(Galaxy.fromLine(parsedData, child));
         }
         else if (child.tokens[0] == 'color') {
-            parsedData.addColor(Color.fromLine(child));
+            parsedData.addColor(Color.fromLine(parsedData, child));
         }
         else if (child.tokens[0] == 'government') {
             parsedData.addGovernment(Government.fromLine(parsedData, child));
