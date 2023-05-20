@@ -8,3 +8,4 @@ export declare class Government {
     static fromLine(data: ParsedData, dataLine: Line): Government;
     constructor(data: ParsedData, name: string);
 }
+//# sourceMappingURL=Government.d.ts.map

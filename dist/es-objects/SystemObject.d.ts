@@ -11,3 +11,4 @@ export declare class SystemObject {
     constructor(esData: ParsedData, distance: number, period: number, offset?: number);
     static fromLine(data: ParsedData, dataLine: Line): SystemObject;
 }
+//# sourceMappingURL=SystemObject.d.ts.map

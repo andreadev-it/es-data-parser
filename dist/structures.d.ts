@@ -12,3 +12,4 @@ export declare class FileRoot extends Line {
     filename: string;
     constructor(tokens: string[], indentation: number, filename: string);
 }
+//# sourceMappingURL=structures.d.ts.map

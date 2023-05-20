@@ -15,3 +15,4 @@ export declare class System {
     static fromLine(data: ParsedData, dataLine: Line): System;
     constructor(data: ParsedData, name: string, pos: Point);
 }
+//# sourceMappingURL=System.d.ts.map

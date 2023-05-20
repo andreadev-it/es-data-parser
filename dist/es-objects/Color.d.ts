@@ -12,3 +12,4 @@ export declare class Color {
     static fromPercentages(label: string, r: number, g: number, b: number, a: number): Color;
     static fromGovernment(data: ParsedData, govName: string): Color | null;
 }
+//# sourceMappingURL=Color.d.ts.map

@@ -9,3 +9,4 @@ export declare class Galaxy {
     static fromLine(data: ParsedData, dataLine: Line): Galaxy;
     constructor(data: ParsedData, name: string, pos: Point);
 }
+//# sourceMappingURL=Galaxy.d.ts.map

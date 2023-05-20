@@ -19,3 +19,4 @@ export declare class ParsedData {
     addPlanet(planet: Planet): void;
     addWormhole(wormhole: Wormhole): void;
 }
+//# sourceMappingURL=ParsedData.d.ts.map

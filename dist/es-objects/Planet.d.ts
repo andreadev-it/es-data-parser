@@ -7,3 +7,4 @@ export declare class Planet {
     constructor(esData: ParsedData, name: string);
     static fromLine(data: ParsedData, dataLine: Line): Planet;
 }
+//# sourceMappingURL=Planet.d.ts.map

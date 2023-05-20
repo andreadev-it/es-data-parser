@@ -10,3 +10,4 @@ export declare class Wormhole {
     constructor(esData: ParsedData, name: string);
     static fromLine(data: ParsedData, dataLine: Line): Wormhole;
 }
+//# sourceMappingURL=Wormhole.d.ts.map

@@ -8,3 +8,4 @@ export { System } from './es-objects/System';
 export { SystemObject } from './es-objects/SystemObject';
 export { Wormhole } from './es-objects/Wormhole';
 export { Point } from './utils';
+//# sourceMappingURL=index.d.ts.map
