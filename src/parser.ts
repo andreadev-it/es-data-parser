@@ -8,7 +8,7 @@ import { Planet } from "./es-objects/Planet";
 import { Wormhole } from "./es-objects/Wormhole";
 
 
-export async function parse(root: FileRoot, previousData: ParsedData | null = null) {
+export function parse(root: FileRoot, previousData: ParsedData | null = null) {
     const parsedData = previousData ?? new ParsedData();
 
     for (let child of root.children) {
