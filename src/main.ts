@@ -20,7 +20,7 @@ export async function parseFiles(files: File[]) {
     const parsedData = new ParsedData();
 
     for (let file of files) {
-        parseFile(file, file.webkitRelativePath, parsedData);
+        await parseFile(file, file.webkitRelativePath, parsedData);
     }
 
     return parsedData;
