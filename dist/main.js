@@ -17,7 +17,7 @@ exports.parseFile = parseFile;
 async function parseFiles(files) {
     const parsedData = new ParsedData_1.ParsedData();
     for (let file of files) {
-        parseFile(file, file.webkitRelativePath, parsedData);
+        await parseFile(file, file.webkitRelativePath, parsedData);
     }
     return parsedData;
 }

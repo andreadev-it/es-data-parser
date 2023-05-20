@@ -8,7 +8,7 @@ const Color_1 = require("./es-objects/Color");
 const Government_1 = require("./es-objects/Government");
 const Planet_1 = require("./es-objects/Planet");
 const Wormhole_1 = require("./es-objects/Wormhole");
-async function parse(root, previousData = null) {
+function parse(root, previousData = null) {
     const parsedData = previousData !== null && previousData !== void 0 ? previousData : new ParsedData_1.ParsedData();
     for (let child of root.children) {
         if (child.tokens[0] == 'system') {
