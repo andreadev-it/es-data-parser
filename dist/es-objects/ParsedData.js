@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ParsedData = void 0;
-class ParsedData {
+export class ParsedData {
     constructor() {
         this.galaxies = new Map();
         this.starSystems = new Map();
@@ -29,4 +26,3 @@ class ParsedData {
         this.wormholes.set(wormhole.name, wormhole);
     }
 }
-exports.ParsedData = ParsedData;

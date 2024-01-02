@@ -1,7 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Galaxy = void 0;
-class Galaxy {
+export class Galaxy {
+    constructor(data, name, pos) {
+        this.position = { x: 0, y: 0 };
+        this.sprite = "";
+        this.name = name;
+        this.position = pos;
+        this.esData = data;
+    }
     static fromLine(data, dataLine) {
         if (dataLine.tokens[0] != 'galaxy') {
             throw new Error("Not a galaxy");
@@ -30,12 +34,4 @@ class Galaxy {
         galaxy.sprite = sprite;
         return galaxy;
     }
-    constructor(data, name, pos) {
-        this.position = { x: 0, y: 0 };
-        this.sprite = "";
-        this.name = name;
-        this.position = pos;
-        this.esData = data;
-    }
 }
-exports.Galaxy = Galaxy;

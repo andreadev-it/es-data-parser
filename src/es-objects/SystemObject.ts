@@ -1,7 +1,7 @@
 // This class represents different kind of objects
 // that you can find in a star system. 
 import { ParsedData } from "./ParsedData";
-import { Line } from "es-data-parser/structures";
+import { Line } from "../structures";
 
 export class SystemObject {
     name = "";

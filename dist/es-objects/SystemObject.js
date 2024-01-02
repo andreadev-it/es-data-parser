@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.SystemObject = void 0;
-class SystemObject {
+export class SystemObject {
     constructor(esData, distance, period, offset = 0) {
         this.esData = esData;
         this.name = "";
@@ -46,4 +43,3 @@ class SystemObject {
         return systemObject;
     }
 }
-exports.SystemObject = SystemObject;

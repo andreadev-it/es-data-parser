@@ -1,13 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.lex = void 0;
-const structures_1 = require("./structures");
-function lex(data, filename = "") {
-    const root = new structures_1.FileRoot([], 0, filename);
+import { Line, FileRoot } from "./structures";
+export function lex(data, filename = "") {
+    const root = new FileRoot([], 0, filename);
     let isQuoteOpen = false;
     let isComment = false;
     let currentQuote = "";
-    let currentLine = new structures_1.Line([], 0);
+    let currentLine = new Line([], 0);
     let currentToken = "";
     let parentLevels = [root];
     for (let i = 0; i < data.length; i++) {
@@ -48,7 +45,7 @@ function lex(data, filename = "") {
                 }
                 currentToken = '';
                 isComment = false;
-                nextLine = new structures_1.Line([], 0);
+                nextLine = new Line([], 0);
                 // ignore blank lines
                 if (currentLine.tokens.length == 0) {
                     currentLine = nextLine;
@@ -112,4 +109,3 @@ function lex(data, filename = "") {
     }
     return root;
 }
-exports.lex = lex;

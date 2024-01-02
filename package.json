@@ -1,6 +1,6 @@
 {
   "name": "es-data-parser",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A simple data parser for endless sky game data",
   "exports": {
     ".": "./dist/index.js",
@@ -14,5 +14,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andrea Dragotta",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
 }

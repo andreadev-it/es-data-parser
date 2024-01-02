@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Wormhole = void 0;
-const Color_1 = require("./Color");
-class Wormhole {
+import { Color } from "./Color";
+export class Wormhole {
     constructor(esData, name) {
         this.esData = esData;
         this.name = name;
@@ -32,7 +29,7 @@ class Wormhole {
                         if (dataLine.tokens.length == 5) {
                             a = parseFloat(dataLine.tokens[4]);
                         }
-                        color = Color_1.Color.fromPercentages('', r, g, b, a);
+                        color = Color.fromPercentages('', r, g, b, a);
                     }
                     break;
                 case 'link':
@@ -50,4 +47,3 @@ class Wormhole {
         return wormhole;
     }
 }
-exports.Wormhole = Wormhole;

@@ -1,4 +1,4 @@
-import { Line } from "es-data-parser/structures";
+import { Line } from "../structures";
 import { ParsedData } from "./ParsedData";
 import { Point } from "../utils";
 

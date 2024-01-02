@@ -1,8 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Government = void 0;
-const Color_1 = require("./Color");
-class Government {
+import { Color } from "./Color";
+export class Government {
+    constructor(data, name) {
+        this.color = "";
+        this.esData = data;
+        this.name = name;
+    }
     static fromLine(data, dataLine) {
         if (dataLine.tokens[0] != 'government') {
             throw new Error("Not a government");
@@ -22,7 +24,7 @@ class Government {
                     if (dataLine.tokens.length == 5) {
                         a = parseFloat(dataLine.tokens[4]);
                     }
-                    color = Color_1.Color.fromPercentages('', r, g, b, a);
+                    color = Color.fromPercentages('', r, g, b, a);
                 }
             }
         }
@@ -30,10 +32,4 @@ class Government {
         government.color = color;
         return government;
     }
-    constructor(data, name) {
-        this.color = "";
-        this.esData = data;
-        this.name = name;
-    }
 }
-exports.Government = Government;

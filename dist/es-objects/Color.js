@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Color = void 0;
-class Color {
+export class Color {
     constructor(name, r, g, b, a = 255) {
         this.name = name;
         this.r = r;
@@ -45,4 +42,3 @@ class Color {
         return color;
     }
 }
-exports.Color = Color;

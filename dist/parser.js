@@ -1,35 +1,31 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parse = void 0;
-const ParsedData_1 = require("./es-objects/ParsedData");
-const System_1 = require("./es-objects/System");
-const Galaxy_1 = require("./es-objects/Galaxy");
-const Color_1 = require("./es-objects/Color");
-const Government_1 = require("./es-objects/Government");
-const Planet_1 = require("./es-objects/Planet");
-const Wormhole_1 = require("./es-objects/Wormhole");
-function parse(root, previousData = null) {
-    const parsedData = previousData !== null && previousData !== void 0 ? previousData : new ParsedData_1.ParsedData();
+import { ParsedData } from "./es-objects/ParsedData";
+import { System } from "./es-objects/System";
+import { Galaxy } from "./es-objects/Galaxy";
+import { Color } from "./es-objects/Color";
+import { Government } from "./es-objects/Government";
+import { Planet } from "./es-objects/Planet";
+import { Wormhole } from "./es-objects/Wormhole";
+export function parse(root, previousData = null) {
+    const parsedData = previousData !== null && previousData !== void 0 ? previousData : new ParsedData();
     for (let child of root.children) {
         if (child.tokens[0] == 'system') {
-            parsedData.addStarSystem(System_1.System.fromLine(parsedData, child));
+            parsedData.addStarSystem(System.fromLine(parsedData, child));
         }
         else if (child.tokens[0] == 'galaxy') {
-            parsedData.addGalaxy(Galaxy_1.Galaxy.fromLine(parsedData, child));
+            parsedData.addGalaxy(Galaxy.fromLine(parsedData, child));
         }
         else if (child.tokens[0] == 'color') {
-            parsedData.addColor(Color_1.Color.fromLine(parsedData, child));
+            parsedData.addColor(Color.fromLine(parsedData, child));
         }
         else if (child.tokens[0] == 'government') {
-            parsedData.addGovernment(Government_1.Government.fromLine(parsedData, child));
+            parsedData.addGovernment(Government.fromLine(parsedData, child));
         }
         else if (child.tokens[0] == 'planet') {
-            parsedData.addPlanet(Planet_1.Planet.fromLine(parsedData, child));
+            parsedData.addPlanet(Planet.fromLine(parsedData, child));
         }
         else if (child.tokens[0] == 'wormhole') {
-            parsedData.addWormhole(Wormhole_1.Wormhole.fromLine(parsedData, child));
+            parsedData.addWormhole(Wormhole.fromLine(parsedData, child));
         }
     }
     return parsedData;
 }
-exports.parse = parse;

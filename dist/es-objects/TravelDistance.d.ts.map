@@ -1,0 +1,1 @@
+{"version":3,"file":"TravelDistance.d.ts","sourceRoot":"","sources":["../../src/es-objects/TravelDistance.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,IAAI,EAAE,MAAM,eAAe,CAAC;AACrC,OAAO,EAAE,UAAU,EAAE,MAAM,cAAc,CAAC;AAE1C,qBAAa,cAAc;IACvB,IAAI,SAAK;IACT,IAAI,SAAK;IAET,MAAM,CAAC,QAAQ,CAAC,IAAI,EAAE,UAAU,EAAE,QAAQ,EAAE,IAAI,GAAG,cAAc;CAgCpE"}

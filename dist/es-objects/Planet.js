@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Planet = void 0;
-class Planet {
+export class Planet {
     constructor(esData, name) {
         this.esData = esData;
         this.name = name;
@@ -23,4 +20,3 @@ class Planet {
         return planet;
     }
 }
-exports.Planet = Planet;

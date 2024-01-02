@@ -1,5 +1,5 @@
 import { ParsedData } from "./ParsedData";
-import { Line } from "es-data-parser/structures";
+import { Line } from "../structures";
 export declare class Planet {
     private esData;
     name: string;

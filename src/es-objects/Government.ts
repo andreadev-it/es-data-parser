@@ -1,4 +1,4 @@
-import { Line } from "es-data-parser/structures";
+import { Line } from "../structures";
 import { Color } from "./Color";
 import { ParsedData } from "./ParsedData";
 
