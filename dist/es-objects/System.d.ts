@@ -14,6 +14,23 @@ export declare type BeltInfo = {
     distance: number;
     weight: number;
 };
+export declare type TradeInfo = {
+    commodity: string;
+    cost: number;
+};
+export declare type FleetInfo = {
+    name: string;
+    period: number;
+};
+export declare type RaidInfo = {
+    fleet: string;
+    minAttraction: number;
+    maxAttraction: number;
+};
+export declare type HazardInfo = {
+    name: string;
+    period: number;
+};
 export declare class System {
     name: string;
     position: Point;
@@ -36,6 +53,12 @@ export declare class System {
     haze: string;
     asteroids: AsteroidData[];
     minables: AsteroidData[];
+    trades: TradeInfo[];
+    fleets: FleetInfo[];
+    raids: RaidInfo[];
+    noRaid: boolean;
+    hazards: HazardInfo[];
+    starfieldDensity: number;
     isSelected: boolean;
     static fromLine(data: ParsedData, dataLine: Line): System;
     constructor(data: ParsedData, name: string, pos: Point);

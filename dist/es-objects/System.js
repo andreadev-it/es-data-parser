@@ -21,6 +21,12 @@ export class System {
         this.haze = "";
         this.asteroids = [];
         this.minables = [];
+        this.trades = [];
+        this.fleets = [];
+        this.raids = [];
+        this.noRaid = false;
+        this.hazards = [];
+        this.starfieldDensity = 1;
         this.isSelected = false;
         this.name = name;
         this.position = pos;
@@ -51,6 +57,12 @@ export class System {
         let haze = "";
         let asteroids = [];
         let minables = [];
+        let trades = [];
+        let fleets = [];
+        let raids = [];
+        let noRaid = false;
+        let hazards = [];
+        let starfieldDensity = 1;
         for (let child of dataLine.children) {
             switch (child.tokens[0]) {
                 // Extract the position
@@ -146,6 +158,42 @@ export class System {
                         energy: parseFloat(child.tokens[3])
                     });
                     break;
+                // Trade info
+                case 'trade':
+                    trades.push({
+                        commodity: child.tokens[1],
+                        cost: parseInt(child.tokens[2])
+                    });
+                    break;
+                // Fleets that will spawn
+                case 'fleet':
+                    fleets.push({
+                        name: child.tokens[1],
+                        period: parseInt(child.tokens[2])
+                    });
+                    break;
+                // Raids coming into the system
+                case 'raid':
+                    raids.push({
+                        fleet: child.tokens[1],
+                        minAttraction: parseInt(child.tokens[2]),
+                        maxAttraction: parseInt(child.tokens[3])
+                    });
+                    break;
+                case 'no raid':
+                    noRaid = true;
+                    break;
+                // Hazards present in the system
+                case 'hazard':
+                    hazards.push({
+                        name: child.tokens[1],
+                        period: parseInt(child.tokens[2])
+                    });
+                    break;
+                // Density of the stars in the background
+                case 'starfield density':
+                    starfieldDensity = parseFloat(child.tokens[1]);
+                    break;
             }
         }
         if (!foundPos) {
@@ -170,6 +218,12 @@ export class System {
         system.haze = haze;
         system.asteroids = asteroids;
         system.minables = minables;
+        system.trades = trades;
+        system.fleets = fleets;
+        system.raids = raids;
+        system.noRaid = noRaid;
+        system.hazards = hazards;
+        system.starfieldDensity = starfieldDensity;
         return system;
     }
 }
