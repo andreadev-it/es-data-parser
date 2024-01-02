@@ -1,6 +1,6 @@
 {
   "name": "es-data-parser",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A simple data parser for endless sky game data",
   "exports": {
     ".": "./dist/index.js",
