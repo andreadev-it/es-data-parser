@@ -37,37 +37,21 @@ export class System {
             throw new Error("Not a system");
         }
         const name = dataLine.tokens[1];
-        let pos = { x: 0, y: 0 };
+        const system = new System(data, name, { x: 0, y: 0 });
         let foundPos = false;
         let links = [];
-        let government = "";
-        let attributes = [];
         const objects = [];
-        let arrival = new TravelDistance();
-        let departure = new TravelDistance();
-        let inaccessible = false;
-        let hidden = false;
-        let shrouded = false;
-        let music = "";
-        let ramscoop = new RamscoopModifier();
-        let habitable = 0;
-        let belt = { distance: 0, weight: 1 };
-        let invisibleFence = 10000;
-        let jumpRange = 0;
-        let haze = "";
         let asteroids = [];
         let minables = [];
         let trades = [];
         let fleets = [];
         let raids = [];
-        let noRaid = false;
         let hazards = [];
-        let starfieldDensity = 1;
         for (let child of dataLine.children) {
             switch (child.tokens[0]) {
                 // Extract the position
                 case 'pos':
-                    pos = {
+                    system.position = {
                         x: parseInt(child.tokens[1]),
                         y: parseInt(child.tokens[2])
                     };
@@ -79,11 +63,11 @@ export class System {
                     break;
                 // Set the system government
                 case 'government':
-                    government = child.tokens[1];
+                    system.government = child.tokens[1];
                     break;
                 // Save a list of attributes
                 case 'attributes':
-                    attributes = child.tokens.slice(1);
+                    system.attributes = child.tokens.slice(1);
                     break;
                 // Parse the objects in the system
                 case 'object':
@@ -91,39 +75,39 @@ export class System {
                     break;
                 // Parse the arrival distance
                 case 'arrival':
-                    arrival = TravelDistance.fromLine(data, child);
+                    system.arrival = TravelDistance.fromLine(data, child);
                     break;
                 // Parse the departure distance
                 case 'departure':
-                    departure = TravelDistance.fromLine(data, child);
+                    system.departure = TravelDistance.fromLine(data, child);
                     break;
                 // Inaccessible system
                 case 'inaccessible':
-                    inaccessible = true;
+                    system.inaccessible = true;
                     break;
                 // Hidden system
                 case 'hidden':
-                    hidden = true;
+                    system.hidden = true;
                     break;
                 // Shrouded system
                 case 'shrouded':
-                    shrouded = true;
+                    system.shrouded = true;
                     break;
                 // Music for this specific system
                 case 'music':
-                    music = child.tokens[1];
+                    system.music = child.tokens[1];
                     break;
                 // Changes to how the ramscoop works in this system
                 case 'ramscoop':
-                    ramscoop = RamscoopModifier.fromLine(data, child);
+                    system.ramscoop = RamscoopModifier.fromLine(data, child);
                     break;
                 // Habitable zone
                 case 'habitable':
-                    habitable = parseInt(child.tokens[1]);
+                    system.habitable = parseInt(child.tokens[1]);
                     break;
                 // Data for the asteroid belt
                 case 'belt':
-                    belt = {
+                    system.belt = {
                         distance: parseInt(child.tokens[1]),
                         weight: (child.tokens[2])
                             ? parseFloat(child.tokens[2])
@@ -132,15 +116,15 @@ export class System {
                     break;
                 // Invisible fence distance for the NPCs
                 case 'invisible fence':
-                    invisibleFence = parseInt(child.tokens[1]);
+                    system.invisibleFence = parseInt(child.tokens[1]);
                     break;
                 // Jump range
                 case 'jump range':
-                    jumpRange = parseInt(child.tokens[1]);
+                    system.jumpRange = parseInt(child.tokens[1]);
                     break;
                 // Haze sprite
                 case 'haze':
-                    haze = child.tokens[1];
+                    system.haze = child.tokens[1];
                     break;
                 // Asteroid type data
                 case 'asteroids':
@@ -181,7 +165,7 @@ export class System {
                     });
                     break;
                 case 'no raid':
-                    noRaid = true;
+                    system.noRaid = true;
                     break;
                 // Hazards present in the system
                 case 'hazard':
@@ -192,38 +176,21 @@ export class System {
                     break;
                 // Density of the stars in the background
                 case 'starfield density':
-                    starfieldDensity = parseFloat(child.tokens[1]);
+                    system.starfieldDensity = parseFloat(child.tokens[1]);
                     break;
             }
         }
         if (!foundPos) {
             throw new Error("No position found for this system");
         }
-        const system = new System(data, name, pos);
         system.links = links;
-        system.government = government;
-        system.attributes = attributes;
         system.objects = objects;
-        system.arrival = arrival;
-        system.departure = departure;
-        system.inaccessible = inaccessible;
-        system.hidden = hidden;
-        system.shrouded = shrouded;
-        system.music = music;
-        system.ramscoop = ramscoop;
-        system.habitable = habitable;
-        system.belt = belt;
-        system.invisibleFence = invisibleFence;
-        system.jumpRange = jumpRange;
-        system.haze = haze;
         system.asteroids = asteroids;
         system.minables = minables;
         system.trades = trades;
         system.fleets = fleets;
         system.raids = raids;
-        system.noRaid = noRaid;
         system.hazards = hazards;
-        system.starfieldDensity = starfieldDensity;
         return system;
     }
 }
