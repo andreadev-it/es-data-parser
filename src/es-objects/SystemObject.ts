@@ -2,10 +2,11 @@
 // that you can find in a star system. 
 import { ParsedData } from "./ParsedData";
 import { Line } from "../structures";
+import { Sprite } from "./Sprite";
 
 export class SystemObject {
     name = "";
-    sprite = "";
+    sprite: Sprite | null = null;
     distance: number;
     period: number;
     offset: number = 0;
@@ -22,7 +23,7 @@ export class SystemObject {
         }
 
         const name = (dataLine.tokens.length == 2) ? dataLine.tokens[1] : "";
-        let sprite = "";
+        let sprite: Sprite | null = null;
         let distance = 0;
         let period = 0;
         let offset = 0;
@@ -30,7 +31,7 @@ export class SystemObject {
         for (let child of dataLine.children) {
             switch (child.tokens[0]) {
                 case 'sprite':
-                    sprite = child.tokens[1];
+                    sprite = Sprite.fromLine(data, child);
                     break;
                 case 'distance':
                     distance = parseFloat(child.tokens[1]);

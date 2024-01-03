@@ -1,8 +1,9 @@
+import { Sprite } from "./Sprite";
 export class SystemObject {
     constructor(esData, distance, period, offset = 0) {
         this.esData = esData;
         this.name = "";
-        this.sprite = "";
+        this.sprite = null;
         this.offset = 0;
         this.objects = [];
         this.distance = distance;
@@ -13,7 +14,7 @@ export class SystemObject {
             throw new Error("Not an object");
         }
         const name = (dataLine.tokens.length == 2) ? dataLine.tokens[1] : "";
-        let sprite = "";
+        let sprite = null;
         let distance = 0;
         let period = 0;
         let offset = 0;
@@ -21,7 +22,7 @@ export class SystemObject {
         for (let child of dataLine.children) {
             switch (child.tokens[0]) {
                 case 'sprite':
-                    sprite = child.tokens[1];
+                    sprite = Sprite.fromLine(data, child);
                     break;
                 case 'distance':
                     distance = parseFloat(child.tokens[1]);
