@@ -9,7 +9,7 @@ export declare class SystemObject {
     period: number;
     offset: number;
     objects: SystemObject[];
-    constructor(esData: ParsedData, distance: number, period: number, offset?: number);
+    constructor(esData: ParsedData);
     static fromLine(data: ParsedData, dataLine: Line): SystemObject;
 }
 //# sourceMappingURL=SystemObject.d.ts.map

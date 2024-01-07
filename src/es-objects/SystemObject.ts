@@ -7,50 +7,42 @@ import { Sprite } from "./Sprite";
 export class SystemObject {
     name = "";
     sprite: Sprite | null = null;
-    distance: number;
-    period: number;
+    distance: number = 0;
+    period: number = 0;
     offset: number = 0;
     objects: SystemObject[] = [];
 
-    constructor(private esData: ParsedData, distance: number, period: number, offset = 0) {
-        this.distance = distance;
-        this.period = period;
-    }
+    constructor(private esData: ParsedData) { }
 
     static fromLine(data: ParsedData, dataLine: Line) {
         if (dataLine.tokens[0] != 'object') {
             throw new Error("Not an object");
         }
 
-        const name = (dataLine.tokens.length == 2) ? dataLine.tokens[1] : "";
-        let sprite: Sprite | null = null;
-        let distance = 0;
-        let period = 0;
-        let offset = 0;
+        const systemObject = new SystemObject(data);
+        systemObject.name = (dataLine.tokens.length == 2) ? dataLine.tokens[1] : "";
+
         const objects = [];
         for (let child of dataLine.children) {
             switch (child.tokens[0]) {
                 case 'sprite':
-                    sprite = Sprite.fromLine(data, child);
+                    systemObject.sprite = Sprite.fromLine(data, child);
                     break;
                 case 'distance':
-                    distance = parseFloat(child.tokens[1]);
+                    systemObject.distance = parseFloat(child.tokens[1]);
                     break;
                 case 'period':
-                    period = parseFloat(child.tokens[1]);
+                    systemObject.period = parseFloat(child.tokens[1]);
                     break;
                 case 'offset':
-                    offset = parseFloat(child.tokens[1]);
+                    systemObject.offset = parseInt(child.tokens[1]);
                     break;
                 case 'object':
                     objects.push(SystemObject.fromLine(data, child));
             }
         }
 
-        const systemObject = new SystemObject(data, distance, period, offset);
-        systemObject.name = name;
         systemObject.objects = objects;
-        systemObject.sprite = sprite;
 
         return systemObject;
     }
