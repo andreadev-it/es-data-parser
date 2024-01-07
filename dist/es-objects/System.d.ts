@@ -4,33 +4,7 @@ import { SystemObject } from "./SystemObject";
 import { Point } from "../utils";
 import { TravelDistance } from "./TravelDistance";
 import { RamscoopModifier } from "./RamscoopModifier";
-export declare type SystemLink = [Point, Point];
-export declare type AsteroidData = {
-    name: string;
-    count: number;
-    energy: number;
-};
-export declare type BeltInfo = {
-    distance: number;
-    weight: number;
-};
-export declare type TradeInfo = {
-    commodity: string;
-    cost: number;
-};
-export declare type FleetInfo = {
-    name: string;
-    period: number;
-};
-export declare type RaidInfo = {
-    fleet: string;
-    minAttraction: number;
-    maxAttraction: number;
-};
-export declare type HazardInfo = {
-    name: string;
-    period: number;
-};
+import { AsteroidData, TradeInfo, FleetInfo, RaidInfo, BeltInfo, HazardInfo } from '../types';
 export declare class System {
     name: string;
     position: Point;

@@ -1,44 +1,17 @@
 import { Line } from "../structures";
 import { ParsedData } from "./ParsedData";
-import { Color } from "./Color";
 import { SystemObject } from "./SystemObject";
 import { Point } from "../utils";
 import { TravelDistance } from "./TravelDistance";
 import { RamscoopModifier } from "./RamscoopModifier";
-
-export type SystemLink = [Point, Point];
-
-export type AsteroidData = {
-    name: string,
-    count: number,
-    energy: number
-};
-
-export type BeltInfo = {
-    distance: number;
-    weight: number;
-}
-
-export type TradeInfo = {
-    commodity: string;
-    cost: number;
-}
-
-export type FleetInfo = {
-    name: string;
-    period: number;
-}
-
-export type RaidInfo = {
-    fleet: string;
-    minAttraction: number;
-    maxAttraction: number;
-}
-
-export type HazardInfo = {
-    name: string;
-    period: number;
-}
+import { 
+    AsteroidData,
+    TradeInfo,
+    FleetInfo,
+    RaidInfo,
+    BeltInfo,
+    HazardInfo,
+} from '../types';
 
 export class System {
     name: string;

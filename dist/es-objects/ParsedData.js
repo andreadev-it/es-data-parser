@@ -6,6 +6,7 @@ export class ParsedData {
         this.governments = new Map();
         this.planets = new Map();
         this.wormholes = new Map();
+        this.phrases = new Map();
     }
     addGalaxy(galaxy) {
         this.galaxies.set(galaxy.name, galaxy);
@@ -24,5 +25,13 @@ export class ParsedData {
     }
     addWormhole(wormhole) {
         this.wormholes.set(wormhole.name, wormhole);
+    }
+    addPhrase(phrase) {
+        if (this.phrases.has(phrase.name)) {
+            this.phrases.get(phrase.name).push(phrase);
+        }
+        else {
+            this.phrases.set(phrase.name, [phrase]);
+        }
     }
 }

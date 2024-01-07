@@ -4,6 +4,7 @@ import { Color } from "./Color";
 import { Government } from "./Government";
 import { Wormhole } from "./Wormhole";
 import { Planet } from "./Planet";
+import { Phrase } from "./Phrase";
 
 
 export class ParsedData {
@@ -13,6 +14,7 @@ export class ParsedData {
     governments: Map<string, Government> = new Map();
     planets: Map<string, Planet> = new Map();
     wormholes: Map<string, Wormhole> = new Map();
+    phrases: Map<string, Phrase[]> = new Map();
 
     constructor() {}
 
@@ -38,5 +40,14 @@ export class ParsedData {
 
     addWormhole(wormhole: Wormhole) {
         this.wormholes.set(wormhole.name, wormhole);
+    }
+
+    addPhrase(phrase: Phrase) {
+        if (this.phrases.has(phrase.name)) {
+            this.phrases.get(phrase.name)!.push(phrase);
+        }
+        else {
+            this.phrases.set(phrase.name, [phrase]);
+        }
     }
 }
