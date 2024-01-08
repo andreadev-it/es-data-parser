@@ -5,6 +5,8 @@ import { Government } from "./Government";
 import { Wormhole } from "./Wormhole";
 import { Planet } from "./Planet";
 import { Phrase } from "./Phrase";
+import { Star } from "./Star";
+import { Minable } from "./Minable";
 
 
 export class ParsedData {
@@ -15,6 +17,8 @@ export class ParsedData {
     planets: Map<string, Planet> = new Map();
     wormholes: Map<string, Wormhole> = new Map();
     phrases: Map<string, Phrase[]> = new Map();
+    starAttributes: Map<string, Star> = new Map();
+    minables: Map<string, Minable> = new Map();
 
     constructor() {}
 
@@ -49,5 +53,13 @@ export class ParsedData {
         else {
             this.phrases.set(phrase.name, [phrase]);
         }
+    }
+
+    addStarAttribute(star: Star) {
+        this.starAttributes.set(star.name, star);
+    }
+
+    addMinable(minable: Minable) {
+        this.minables.set(minable.name, minable);
     }
 }

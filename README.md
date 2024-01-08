@@ -17,13 +17,15 @@ overview of the status of the parser:
 - [ ] Game rules
 - [x] Governments
 - [ ] Hazards
+- [x] Minables
 - [ ] Missions 
 - [ ] News
 - [ ] Outfits
 - [ ] Persons
-- [ ] Phrases
+- [x] Phrases
 - [ ] Ships
-- [ ] Stars attributes
+- [x] Stars attributes
 - [ ] Start
 - [x] Systems
 - [x] System Objects (stars / planets)
+- [x] Words

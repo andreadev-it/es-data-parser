@@ -7,6 +7,8 @@ export class ParsedData {
         this.planets = new Map();
         this.wormholes = new Map();
         this.phrases = new Map();
+        this.starAttributes = new Map();
+        this.minables = new Map();
     }
     addGalaxy(galaxy) {
         this.galaxies.set(galaxy.name, galaxy);
@@ -33,5 +35,11 @@ export class ParsedData {
         else {
             this.phrases.set(phrase.name, [phrase]);
         }
+    }
+    addStarAttribute(star) {
+        this.starAttributes.set(star.name, star);
+    }
+    addMinable(minable) {
+        this.minables.set(minable.name, minable);
     }
 }

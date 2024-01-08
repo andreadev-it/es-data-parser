@@ -42,3 +42,8 @@ export type PhraseName = WithWeight<string>;
 export type Replacement = [string, string];
 
 export type PhrasePiece = Word | PhraseName[];
+
+export type ExplosionInfo = {
+    effect: string;
+    count: number;
+}

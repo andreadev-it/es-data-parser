@@ -1,0 +1,1 @@
+{"version":3,"file":"Star.d.ts","sourceRoot":"","sources":["../../src/es-objects/Star.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,IAAI,EAAE,MAAM,eAAe,CAAC;AACrC,OAAO,EAAE,UAAU,EAAE,MAAM,cAAc,CAAC;AAE1C,qBAAa,IAAI;IACb,IAAI,SAAM;IACV,KAAK,SAAK;IACV,IAAI,SAAK;IAET,MAAM,CAAC,QAAQ,CAAC,IAAI,EAAE,UAAU,EAAE,QAAQ,EAAE,IAAI;CAsBnD"}

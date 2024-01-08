@@ -1,0 +1,1 @@
+{"version":3,"file":"MinablePayload.d.ts","sourceRoot":"","sources":["../../src/es-objects/MinablePayload.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,IAAI,EAAE,MAAM,eAAe,CAAC;AACrC,OAAO,EAAE,UAAU,EAAE,MAAM,cAAc,CAAC;AAE1C,qBAAa,cAAc;IACvB,MAAM,SAAM;IACZ,QAAQ,SAAK;IACb,QAAQ,SAAQ;IAChB,SAAS,SAAK;IAEd,MAAM,CAAC,QAAQ,CAAC,IAAI,EAAE,UAAU,EAAE,QAAQ,EAAE,IAAI;CA6BnD"}

@@ -32,4 +32,8 @@ export declare type WithWeight<T> = {
 export declare type PhraseName = WithWeight<string>;
 export declare type Replacement = [string, string];
 export declare type PhrasePiece = Word | PhraseName[];
+export declare type ExplosionInfo = {
+    effect: string;
+    count: number;
+};
 //# sourceMappingURL=types.d.ts.map

@@ -6,6 +6,8 @@ import { Government } from "./es-objects/Government";
 import { Planet } from "./es-objects/Planet";
 import { Wormhole } from "./es-objects/Wormhole";
 import { Phrase } from "./es-objects/Phrase";
+import { Star } from "./es-objects/Star";
+import { Minable } from "./es-objects/Minable";
 export function parse(root, previousData = null) {
     const parsedData = previousData !== null && previousData !== void 0 ? previousData : new ParsedData();
     const unparsed = new Set();
@@ -31,6 +33,12 @@ export function parse(root, previousData = null) {
                 break;
             case 'phrase':
                 parsedData.addPhrase(Phrase.fromLine(parsedData, child));
+                break;
+            case 'star':
+                parsedData.addStarAttribute(Star.fromLine(parsedData, child));
+                break;
+            case 'minable':
+                parsedData.addMinable(Minable.fromLine(parsedData, child));
                 break;
             default:
                 unparsed.add(child.tokens[0]);
