@@ -47,3 +47,47 @@ export type ExplosionInfo = {
     effect: string;
     count: number;
 }
+
+export type Endpoint = 'accept'
+    | 'launch'
+    | 'decline'
+    | 'flee'
+    | 'defer'
+    | 'depart'
+    | 'die'
+    | 'explode';
+
+export type Label = {
+    name: string;
+}
+
+export type ComparisonOp = '=='
+    | '!='
+    | '<'
+    | '>'
+    | '<='
+    | '>=';
+
+export function isComparisonOp(str: string): ComparisonOp | null {
+    switch (str) {
+        case "==":
+        case "!=":
+        case "<":
+        case ">":
+        case "<=":
+        case ">=":
+            return str;
+    }
+    return null;
+}
+
+export type TestableCondition = {
+    condition: string;
+    comp: ComparisonOp;
+    value: string | number;
+}
+
+export enum TestableSetMethod {
+    And,
+    Or
+}

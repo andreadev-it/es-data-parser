@@ -8,14 +8,8 @@ export class Phrase {
     pieces: PhrasePiece[] = [];
     replacements: Replacement[] = [];
 
-    static fromLine(data: ParsedData, dataLine: Line) {
-        if (dataLine.tokens[0] != 'phrase') {
-            throw new Error("Not a phrase");
-        }
-
+    static fromSpecs(data: ParsedData, dataLine: Line) {
         let phrase = new Phrase();
-
-        phrase.name = dataLine.tokens[1] ?? "";
 
         let pieces = [];
         let replacements: Replacement[] = [];
@@ -36,6 +30,18 @@ export class Phrase {
 
         phrase.pieces = pieces;
         phrase.replacements = replacements;
+
+        return phrase;
+    }
+
+    static fromLine(data: ParsedData, dataLine: Line) {
+        if (dataLine.tokens[0] != 'phrase') {
+            throw new Error("Not a phrase");
+        }
+
+        let phrase = this.fromSpecs(data, dataLine);
+
+        phrase.name = dataLine.tokens[1] ?? "";
 
         return phrase;
     }
